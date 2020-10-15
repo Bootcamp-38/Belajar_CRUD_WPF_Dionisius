@@ -60,7 +60,7 @@ namespace Belajar_CRUD_WPF_Dionisius
             var input = new Supplier(textBoxName.Text);
             if (textBoxName.Text == string.Empty)
             {
-                MessageBox.Show("Tidak ada data yang dimasukkan");
+                MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
                 textBoxName.Focus();
                 
             }
@@ -68,7 +68,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 myContext.Suppliers.Add(input);
                 myContext.SaveChanges();
 
-                MessageBox.Show("Input Berhasil");
+                MessageBox.Show("Input Berhasil", "Sukses");
                 TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 textBoxName.Clear();
             }
@@ -79,7 +79,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             if(textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
             {
-                MessageBox.Show("Pilih Data Terlebih Dahulu");
+                MessageBox.Show("Pilih Data Terlebih Dahulu", "Peringatan");
             }
             else
             {
@@ -89,7 +89,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 update.Name = textBoxName.Text;
                 myContext.SaveChanges();
 
-                MessageBox.Show("Data Berhasil Update");
+                MessageBox.Show("Data Berhasil Update", "Sukses");
                 TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 textBoxName.Clear();
                 textBoxId.Clear();
@@ -100,19 +100,28 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             if(textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
             {
-                MessageBox.Show("Tidak ada data yang ingin dihapus");
+                MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
             }
             else {
-                int Id = (TableSupplier.SelectedItem as Supplier).Id;
+                MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Menghapus Data???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                
+                if(result == MessageBoxResult.Yes) 
+                {
+                    int Id = (TableSupplier.SelectedItem as Supplier).Id;
 
-                var deleteSupplier = myContext.Suppliers.Where(id => id.Id == Id).Single();
-                myContext.Suppliers.Remove(deleteSupplier);
-                myContext.SaveChanges();
+                    var deleteSupplier = myContext.Suppliers.Where(id => id.Id == Id).Single();
+                    myContext.Suppliers.Remove(deleteSupplier);
+                    myContext.SaveChanges();
 
-                MessageBox.Show("Data Berhasil Dihapus");
-                TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                textBoxName.Clear();
-                textBoxId.Clear();
+                    MessageBox.Show("Data Berhasil Dihapus", "Sukses");
+                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                    textBoxName.Clear();
+                    textBoxId.Clear();
+                }
+                else
+                {
+                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                }
             }
         }
     }
