@@ -37,13 +37,16 @@ namespace Belajar_CRUD_WPF_Dionisius
             if(tb_id.Text == string.Empty || tb_name.Text == string.Empty)
             {
                 object item = TableSupplier.SelectedItem;
+
+                // BERFUNGSI UNTUK MEMANGGIL TABEL KE TEXTBOX
                 string ID = (TableSupplier.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
                 tb_id.Text = ID;
                 string Name = (TableSupplier.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
                 tb_name.Text = Name;
-            }
-            
+            }   
         }
+
+       
 
         private void btn_input_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +81,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 update.Name = tb_name.Text;
                 myContext.SaveChanges();
 
-                MessageBox.Show("Data Berhasil Dihapus");
+                MessageBox.Show("Data Berhasil Update");
                 TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 tb_name.Clear();
                 tb_id.Clear();
