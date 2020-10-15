@@ -14,5 +14,15 @@ namespace Belajar_CRUD_WPF_Dionisius.Models
         [Key]
         public int Id{get; set;}
         public string Name {get; set;}
+
+        public Supplier()
+        {
+
+        }
+
+        public Supplier(string name) 
+        {
+            this.Name = name;
+        }
     }
 }
