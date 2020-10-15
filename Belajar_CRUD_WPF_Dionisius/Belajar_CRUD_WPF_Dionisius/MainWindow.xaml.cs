@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Belajar_CRUD_WPF_Dionisius.Context;
+using Belajar_CRUD_WPF_Dionisius.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,32 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class MainWindow : Window
     {
+        MyContext myContext = new MyContext();
         public MainWindow()
         {
             InitializeComponent();
+            TableSupplier.ItemsSource = myContext.Suppliers.ToList();
         }
+
+        private void TableSupplier_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btn_input_Click(object sender, RoutedEventArgs e)
+        {
+            //var input = new Supplier(tb_name);
+        }
+
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
