@@ -13,5 +13,7 @@ namespace Belajar_CRUD_WPF_Dionisius.Context
         public MyContext() : base("Belajar_CRUD_WPF_Dionisius") { }
 
         public DbSet<Supplier> Suppliers { get; set; }
+
+        public DbSet<Item> Items { get; set; }
     }
 }

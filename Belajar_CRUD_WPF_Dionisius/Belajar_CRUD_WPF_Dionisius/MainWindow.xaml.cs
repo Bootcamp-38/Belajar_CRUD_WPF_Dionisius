@@ -50,10 +50,7 @@ namespace Belajar_CRUD_WPF_Dionisius
             {
                 
             }
-                
         }
-
-       
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
         {
@@ -85,11 +82,11 @@ namespace Belajar_CRUD_WPF_Dionisius
             {
                 int Id = (TableSupplier.SelectedItem as Supplier).Id;
 
-                Supplier update = myContext.Suppliers.Where(id => id.Id == Id).Single();
-                update.Name = textBoxName.Text;
+                Supplier updateSupplier = myContext.Suppliers.Where(update => update.Id == Id).Single();
+                updateSupplier.Name = textBoxName.Text;
                 myContext.SaveChanges();
 
-                MessageBox.Show("Data Berhasil Update", "Sukses");
+                MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
                 TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 textBoxName.Clear();
                 textBoxId.Clear();
@@ -109,11 +106,11 @@ namespace Belajar_CRUD_WPF_Dionisius
                 {
                     int Id = (TableSupplier.SelectedItem as Supplier).Id;
 
-                    var deleteSupplier = myContext.Suppliers.Where(id => id.Id == Id).Single();
+                    var deleteSupplier = myContext.Suppliers.Where(delete => delete.Id == Id).Single();
                     myContext.Suppliers.Remove(deleteSupplier);
                     myContext.SaveChanges();
 
-                    MessageBox.Show("Data Berhasil Dihapus", "Sukses");
+                    MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
                     TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                     textBoxName.Clear();
                     textBoxId.Clear();
@@ -123,6 +120,18 @@ namespace Belajar_CRUD_WPF_Dionisius
                     TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 }
             }
+        }
+
+        private void ItemButtonClick(object sender, RoutedEventArgs e)
+        {
+            Page1 pageItem = new Page1();
+            pageItem.Show();
+            this.Close();
+        }
+
+        private void MainButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Show();
         }
     }
 }
