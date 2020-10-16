@@ -23,13 +23,16 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class Page1 : Window
     {
+        int cb_sup;
+
         MyContext myContext = new MyContext();
         public Page1()
         {
             InitializeComponent();
             TableItem.ItemsSource = myContext.Items.Include("Supplier").ToList();
-            BindingBox();
-            //textBoxId.IsEnabled = false;
+
+            var tipe = myContext.Suppliers.ToList();
+            comboBoxSupplierId.ItemsSource = tipe;
         }
 
         public void BindingBox()
@@ -54,6 +57,10 @@ namespace Belajar_CRUD_WPF_Dionisius
                 textBoxName.Text = Name;
                 string SupId = (TableItem.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
                 comboBoxSupplierId.Text = SupId;
+                string Price = (TableItem.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxPrice.Text = Price;
+                string Stock = (TableItem.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+                textBoxStock.Text = Stock;
             }
             catch (Exception)
             {
@@ -63,7 +70,7 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
         {
-            var input = new Item(textBoxName.Text);
+            
             if (textBoxName.Text == string.Empty || comboBoxSupplierId.SelectedItem == null)
             {
                 MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
@@ -77,7 +84,8 @@ namespace Belajar_CRUD_WPF_Dionisius
                 //MessageBox.Show(SupplyName);
 
                 //Item updateSupplier = (from m in myContext.Items where m.Id == Id select m).Single();
-
+                var suppliernameInput = myContext.Suppliers.Where(m => m.Id == cb_sup).FirstOrDefault();
+                var input = new Item(textBoxName.Text, Convert.ToInt32(textBoxPrice.Text), Convert.ToInt32(textBoxStock.Text), suppliernameInput);
 
 
                 myContext.Items.Add(input);
@@ -100,12 +108,13 @@ namespace Belajar_CRUD_WPF_Dionisius
                 int Id = (TableItem.SelectedItem as Item).Id;
 
                 Item updateSupplier = (from m in myContext.Items where m.Id == Id select m).Single();
-                //Item updateSupplier = myContext.Items.Where(update => update.Id == Id).Single();
-                string InputSupName = comboBoxSupplierId.SelectedItem.ToString();
-                int SupplyName = (from m in myContext.Items.Include("Supplier") where m.Supplier.Name == InputSupName select m.Id).Single();
-                //updateSupplier.Supplier = Convert.ToInt32(SupplyName.ToString());
-                MessageBox.Show(SupplyName.ToString());
+                var suppliernameInput = myContext.Suppliers.Where(m => m.Id == cb_sup).FirstOrDefault();
+                //var Supplier2 = myContext.Suppliers.Where(m => )
+
                 updateSupplier.Name = textBoxName.Text;
+                updateSupplier.Supplier = suppliernameInput;
+                updateSupplier.Stock = Convert.ToInt32(textBoxStock.Text);
+                updateSupplier.Price = Convert.ToInt32(textBoxPrice.Text);
                 //updateSupplier.Supplier = comboBoxSupplierId.SelectedItem.ToString();
                 myContext.SaveChanges();
 
@@ -161,6 +170,18 @@ namespace Belajar_CRUD_WPF_Dionisius
         private void Item_Click(object sender, RoutedEventArgs e)
         {
             this.Show();
+        }
+
+        private void comboBoxSupplierId_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                cb_sup = Convert.ToInt32(comboBoxSupplierId.SelectedValue.ToString());
+            }
+            catch(Exception)
+            {
+                
+            }
         }
     }
 }

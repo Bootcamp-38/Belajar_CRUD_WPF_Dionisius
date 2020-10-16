@@ -15,15 +15,19 @@ namespace Belajar_CRUD_WPF_Dionisius.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public Supplier Supplier { get; set; }
-
+        public int Stock { get; set; }
+        public int Price { get; set; }
         public Item()
         {
 
         }
 
-        public Item(string name)
+        public Item(string name, int price, int stock, Supplier supplier)
         {
             this.Name = name;
+            this.Price = price;
+            this.Stock = stock;
+            Supplier = supplier;
         }
 
     }

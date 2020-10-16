@@ -92,6 +92,14 @@
     <Compile Include="Migrations\202010160116358_addmodelitem.designer.cs">
       <DependentUpon>202010160116358_addmodelitem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010160744015_addmodelitem2.cs" />
+    <Compile Include="Migrations\202010160744015_addmodelitem2.designer.cs">
+      <DependentUpon>202010160744015_addmodelitem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010160820176_addmodelitem3.cs" />
+    <Compile Include="Migrations\202010160820176_addmodelitem3.designer.cs">
+      <DependentUpon>202010160820176_addmodelitem3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Supplier.cs" />
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010160116358_addmodelitem.resx">
       <DependentUpon>202010160116358_addmodelitem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010160744015_addmodelitem2.resx">
+      <DependentUpon>202010160744015_addmodelitem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010160820176_addmodelitem3.resx">
+      <DependentUpon>202010160820176_addmodelitem3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

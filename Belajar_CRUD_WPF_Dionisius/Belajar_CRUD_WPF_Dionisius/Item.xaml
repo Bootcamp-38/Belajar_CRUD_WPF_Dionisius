@@ -26,7 +26,7 @@
                     <Button Grid.Column="1" Padding="5" Margin="10 10 10 10" x:Name="ItemButton" Click="Item_Click" Content="Item Page"></Button>
 
                 </Grid>
-                <Grid Margin="20 100 10 0">
+                <Grid Margin="20 30 10 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="4*"/>
@@ -36,7 +36,7 @@
                     <TextBox  Grid.Column="1" x:Name="textBoxId" Background="#eee"/>
                 </Grid>
 
-                <Grid Margin="20 30 10 0">
+                <Grid Margin="20 10 10 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="4*"/>
@@ -46,7 +46,7 @@
                     <TextBox Grid.Column="1" x:Name="textBoxName" Background="#eee"/>
                 </Grid>
 
-                <Grid Margin="20 30 10 0">
+                <Grid Margin="20 10 10 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="4*"/>
@@ -54,10 +54,30 @@
 
                     <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Supplier Id" TextAlignment="Left" FontWeight="Bold"/>
 
-                    <ComboBox Grid.Column="1" x:Name="comboBoxSupplierId" Background="#eee" ItemsSource="{Binding SupplierId}" >
+                    <ComboBox Grid.Column="1" x:Name="comboBoxSupplierId" Background="#eee" ItemsSource="{Binding Supplier}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="comboBoxSupplierId_SelectionChanged_1">
                         
                         
                     </ComboBox>
+                </Grid>
+
+                <Grid Margin="20 10 10 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Stock" TextAlignment="Left" FontWeight="Bold"/>
+                    <TextBox Grid.Column="1" x:Name="textBoxStock" Background="#eee"/>
+                </Grid>
+
+                <Grid Margin="20 10 10 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Price" TextAlignment="Left" FontWeight="Bold"/>
+                    <TextBox Grid.Column="1" x:Name="textBoxPrice" Background="#eee"/>
                 </Grid>
 
 
@@ -86,6 +106,10 @@
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
 
                     <DataGridTextColumn Header="Supplier_Id" Binding="{Binding Supplier.Name}"/>
+
+                    <DataGridTextColumn Header="Stock" Binding="{Binding Stock}"/>
+
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
