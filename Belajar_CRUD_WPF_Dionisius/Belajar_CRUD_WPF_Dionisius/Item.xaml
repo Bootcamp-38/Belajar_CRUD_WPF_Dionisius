@@ -98,10 +98,9 @@
 
             </StackPanel>
 
-            <DataGrid  x:Name="TableItem" SelectionChanged="TableItem_SelectionChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1" Padding="40">
+            <DataGrid x:Name="TableItem" SelectionChanged="TableItem_SelectionChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1" Padding="40" AlternatingRowBackground="#eee">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-
 
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
 
