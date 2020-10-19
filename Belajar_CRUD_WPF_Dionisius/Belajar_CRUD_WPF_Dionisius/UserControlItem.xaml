@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Belajar_CRUD_WPF_Dionisius.UserControlItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Belajar_CRUD_WPF_Dionisius"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+
+            <Grid Margin="70 50 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="ID" TextAlignment="Left" FontWeight="Bold"/>
+                <TextBox  Grid.Column="1" x:Name="textBoxId" Background="#eee"/>
+            </Grid>
+
+            <Grid Margin="70 20 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
+                <TextBox 
+                            PreviewTextInput="textBoxName_PreviewTextInput"
+                            Grid.Column="1" x:Name="textBoxName" Background="#eee"/>
+            </Grid>
+
+            <Grid Margin="70 20 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Supplier" TextAlignment="Left" FontWeight="Bold"/>
+
+                <ComboBox Grid.Column="1" x:Name="comboBoxSupplierId" Background="#eee" ItemsSource="{Binding Supplier}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="comboBoxSupplierId_SelectionChanged_1">
+
+
+                </ComboBox>
+            </Grid>
+
+            <Grid Margin="70 20 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Stock" TextAlignment="Left" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" x:Name="textBoxStock" Background="#eee"/>
+            </Grid>
+
+            <Grid Margin="70 20 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Price" TextAlignment="Left" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" x:Name="textBoxPrice" Background="#eee"/>
+            </Grid>
+
+            <Grid Margin="60 40 10 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                            x:Name="btn_input" Click="ButtonInputClick" Content="Input" Grid.Column="0" Margin="10,0,9.8,0" Height="19" VerticalAlignment="Top"/>
+                <Button 
+                            x:Name="btn_update" Click="ButtonUpdateClick" Content="Update" Grid.Column="1" Margin="0.4,0,0.4,0.2"/>
+
+            </Grid>
+
+            <Button 
+                        Margin="70 0 10 20"
+                        x:Name="btn_delete" Click="ButtonDeleteClick" Content="Delete" Grid.Column="2" />
+
+            <!--<Button Padding="10" Margin="0 40 0 0" x:Name="Supplier" Click="Supplier_Click" Content="Supplier Page"></Button>-->
+
+        </StackPanel>
+
+        <DataGrid x:Name="TableItem" SelectionChanged="TableItem_SelectionChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1" Padding="30" AlternatingRowBackground="#eee">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+
+                <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier.Name}" Width="*"/>
+
+                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="*"/>
+
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

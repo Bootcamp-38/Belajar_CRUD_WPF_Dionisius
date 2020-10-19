@@ -24,13 +24,12 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserControlSupplier UCSup = new UserControlSupplier();
+        UserControlItem UCItem = new UserControlItem();
         public MainWindow()
         {
             InitializeComponent();
             // Menampilkan DATA GRID
-            SupplierMenu page = new SupplierMenu();
-            page.Show();
-            this.Close();
         }
 
         private void ListViewItem_MouseEnter(object sender, RoutedEventArgs e)
@@ -74,16 +73,15 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void Supplier_Selected(object sender, RoutedEventArgs e)
         {
-            SupplierMenu page = new SupplierMenu();
-            page.Show();
-            this.Close();
+            BG.Children.Remove(UCItem);
+            BG.Children.Add(UCSup);
+            
         }
 
         private void Item_Selected(object sender, RoutedEventArgs e)
         {
-            ItemPage page = new ItemPage();
-            page.Show();
-            this.Close();
+            BG.Children.Remove(UCSup);
+            BG.Children.Add(UCItem);
         }
     }
 }

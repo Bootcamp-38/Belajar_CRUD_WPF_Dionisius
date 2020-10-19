@@ -139,20 +139,12 @@
 
             <!--// Background Image //-->
 
-            <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
-
-                <!--<Grid.Background>
-
-                    <ImageBrush x:Name="img_bg"
-                                ImageSource="./Assets/icons8-supplier-24.png"
-                                Stretch="Fill"/>
-
-                </Grid.Background>-->
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <Grid x:Name="BG" 
+                  PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown"
+                  Background="Beige">
+                <Frame x:Name="BGMain" 
+                       NavigationUIVisibility="Hidden"
+                       VerticalAlignment="Top"/>
             </Grid>
 
             <!--// App Close Button //-->
