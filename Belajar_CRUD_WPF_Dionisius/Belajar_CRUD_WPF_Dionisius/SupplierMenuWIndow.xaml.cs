@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -182,6 +183,12 @@ namespace Belajar_CRUD_WPF_Dionisius
             Page1 page = new Page1();
             page.Show();
             this.Close();
+        }
+
+        private void textBoxName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z]+$");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -166,7 +166,8 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="ID" TextAlignment="Left" FontWeight="Bold"/>
-                        <TextBox  Grid.Column="1" x:Name="textBoxId" Background="#eee" Margin="0 0 30 0"/>
+                        <TextBox 
+                            x:Name="textBoxId" Background="#eee" Margin="62,0,30.4,-0.4" Grid.ColumnSpan="2" Height="18" VerticalAlignment="Top"/>
                     </Grid>
 
                     <Grid Margin="80 30 10 0">
@@ -176,7 +177,9 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
-                        <TextBox Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 30 0"/>
+                        <TextBox 
+                            PreviewTextInput="textBoxName_PreviewTextInput"
+                            Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 30 0"/>
                     </Grid>
 
                     <Grid Margin="70 40 20 20">

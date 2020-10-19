@@ -173,7 +173,9 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
-                        <TextBox Grid.Column="1" x:Name="textBoxName" Background="#eee"/>
+                        <TextBox 
+                            PreviewTextInput="textBoxName_PreviewTextInput"
+                            Grid.Column="1" x:Name="textBoxName" Background="#eee"/>
                     </Grid>
 
                     <Grid Margin="70 20 10 0">
