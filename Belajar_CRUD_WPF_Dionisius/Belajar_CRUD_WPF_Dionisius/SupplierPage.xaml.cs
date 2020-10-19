@@ -13,61 +13,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Belajar_CRUD_WPF_Dionisius
 {
     /// <summary>
-    /// Interaction logic for SupplierMenuWIndow.xaml
+    /// Interaction logic for SupplierPage.xaml
     /// </summary>
-    public partial class SupplierMenu : Window
+    public partial class SupplierPage : Page
     {
         MyContext myContext = new MyContext();
-        public SupplierMenu()
+        
+        public SupplierPage()
         {
             InitializeComponent();
             TableSupplier.ItemsSource = myContext.Suppliers.ToList();
             // Membuat Id tidak bisa diganti
             textBoxId.IsEnabled = false;
-        }
-
-        private void ListViewItem_MouseEnter(object sender, RoutedEventArgs e)
-        {
-            // Set tooltip visibility
-
-            if (Tg_btn.IsChecked == true)
-            {
-                tt_home.Visibility = Visibility.Collapsed;
-                tt_contacts.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                tt_home.Visibility = Visibility.Visible;
-                tt_contacts.Visibility = Visibility.Visible;
-
-            }
-        }
-
-        private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
-        {
-            //img_bg.Opacity = 1;
-            BG.Opacity = 1;
-        }
-
-        private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
-        {
-            //img_bg.Opacity = 0.3;
-            BG.Opacity = 0.3;
-        }
-
-        private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Tg_btn.IsChecked = false;
-        }
-
-        private void CloseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void TableSupplier_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -159,30 +122,6 @@ namespace Belajar_CRUD_WPF_Dionisius
                     TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                 }
             }
-        }
-
-        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        //private void LV_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    Page1 page = new Page1();
-        //    page.Show();
-        //    this.Close();
-        //}
-
-        private void Supplier_Selected(object sender, RoutedEventArgs e)
-        {
-            this.Show();
-        }
-
-        private void Item_Selected(object sender, RoutedEventArgs e)
-        {
-            ItemPage page = new ItemPage();
-            page.Show();
-            this.Close();
         }
 
         private void textBoxName_PreviewTextInput(object sender, TextCompositionEventArgs e)

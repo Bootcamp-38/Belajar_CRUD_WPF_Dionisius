@@ -22,12 +22,12 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Window
+    public partial class ItemPage : Window
     {
         int cb_sup;
 
         MyContext myContext = new MyContext();
-        public Page1()
+        public ItemPage()
         {
             InitializeComponent();
             TableItem.ItemsSource = myContext.Items.Include("Supplier").ToList();

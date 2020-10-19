@@ -189,11 +189,28 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <Button x:Name="btn_input" Click="ButtonInputClick" Content="Input" Grid.Column="0" Margin="0 0 10 0"/>
-                        <Button x:Name="btn_update" Click="ButtonUpdateClick" Content="Update" Grid.Column="1"/>
+                        <Button 
+                            x:Name="btn_input" 
+                            Click="ButtonInputClick" 
+                            Content="Input" 
+                            Grid.Column="0" 
+                            Margin="0 0 10 0"
+                            />
+                        <Button 
+                            x:Name="btn_update" 
+                            Click="ButtonUpdateClick" 
+                            Content="Update" 
+                            Grid.Column="1"
+                            />
                     </Grid>
 
-                    <Button x:Name="btn_delete" Click="ButtonDeleteClick" Content="Delete" Grid.Column="2" Margin="70 0 20 20"/>
+                    <Button 
+                        x:Name="btn_delete" 
+                        Click="ButtonDeleteClick" 
+                        Content="Delete" 
+                        Grid.Column="2" 
+                        Margin="70 0 20 20"
+                        />
 
 
                 </StackPanel>

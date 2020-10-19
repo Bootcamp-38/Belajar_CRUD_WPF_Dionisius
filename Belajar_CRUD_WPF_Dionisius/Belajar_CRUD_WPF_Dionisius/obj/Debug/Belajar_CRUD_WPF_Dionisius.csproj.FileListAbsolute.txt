@@ -31,3 +31,6 @@ D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\SupplierMenuWIndow.baml
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\App.baml
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\SupplierPage.g.cs
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\SupplierPage.baml
