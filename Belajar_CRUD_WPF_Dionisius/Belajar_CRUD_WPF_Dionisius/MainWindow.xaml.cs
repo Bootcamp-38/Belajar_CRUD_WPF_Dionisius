@@ -74,14 +74,29 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void Supplier_Selected(object sender, RoutedEventArgs e)
         {
-            BG.Children.Remove(UCItem);
-            BG.Children.Add(UCSup);
+            if (BG.Children.Contains(UCSup)){
+                BG.Children.Remove(UCSup);
+                BG.Children.Add(UCSup);
+            }
+            else
+            {
+                BG.Children.Remove(UCItem);
+                BG.Children.Add(UCSup);
+            }
         }
 
         private void Item_Selected(object sender, RoutedEventArgs e)
         {
-            BG.Children.Remove(UCSup);
-            BG.Children.Add(UCItem);
+            if (BG.Children.Contains(UCItem))
+            {
+                BG.Children.Remove(UCItem);
+                BG.Children.Add(UCItem);
+            }
+            else
+            {
+                BG.Children.Remove(UCSup);
+                BG.Children.Add(UCItem);
+            }
         }
     }
 }
