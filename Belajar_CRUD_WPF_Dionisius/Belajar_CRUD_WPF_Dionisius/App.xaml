@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Belajar_CRUD_WPF_Dionisius"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

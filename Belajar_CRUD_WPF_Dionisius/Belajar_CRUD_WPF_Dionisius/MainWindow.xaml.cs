@@ -24,114 +24,24 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class MainWindow : Window
     {
-        MyContext myContext = new MyContext();
         public MainWindow()
         {
             InitializeComponent();
             // Menampilkan DATA GRID
-            TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-            // Membuat Id tidak bisa diganti
-            textBoxId.IsEnabled = false;
         }
 
-        private void TableSupplier_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SupplierGo_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                object item = TableSupplier.SelectedItem;
-
-                // Memanggil Tabel ke TextBox
-                string ID = (TableSupplier.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxId.Text = ID;
-                string Name = (TableSupplier.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                textBoxName.Text = Name;
-            }
-            catch (Exception)
-            {
-                
-            }
-        }
-
-        private void ButtonInputClick(object sender, RoutedEventArgs e)
-        {
-            var input = new Supplier(textBoxName.Text);
-            if (textBoxName.Text == string.Empty)
-            {
-                MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
-                textBoxName.Focus();
-                
-            }
-            else {
-                myContext.Suppliers.Add(input);
-                myContext.SaveChanges();
-
-                MessageBox.Show("Input Berhasil", "Sukses");
-                TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                textBoxName.Clear();
-            }
-            
-        }
-
-        private void ButtonUpdateClick(object sender, RoutedEventArgs e)
-        {
-            if(textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
-            {
-                MessageBox.Show("Pilih Data Terlebih Dahulu", "Peringatan");
-            }
-            else
-            {
-                int Id = (TableSupplier.SelectedItem as Supplier).Id;
-
-                Supplier updateSupplier = myContext.Suppliers.Where(update => update.Id == Id).Single();
-                updateSupplier.Name = textBoxName.Text;
-                myContext.SaveChanges();
-
-                MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
-                TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                textBoxName.Clear();
-                textBoxId.Clear();
-            }
-        }
-
-        private void ButtonDeleteClick(object sender, RoutedEventArgs e)
-        {
-            if(textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
-            {
-                MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
-            }
-            else {
-                MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Menghapus Data???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                
-                if(result == MessageBoxResult.Yes) 
-                {
-                    int Id = (TableSupplier.SelectedItem as Supplier).Id;
-
-                    var deleteSupplier = myContext.Suppliers.Where(delete => delete.Id == Id).Single();
-                    myContext.Suppliers.Remove(deleteSupplier);
-                    myContext.SaveChanges();
-
-                    MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
-                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                    textBoxName.Clear();
-                    textBoxId.Clear();
-                }
-                else
-                {
-                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                }
-            }
-        }
-
-        private void ItemButtonClick(object sender, RoutedEventArgs e)
-        {
-            Page1 pageItem = new Page1();
-            pageItem.Show();
+            SupplierMenu page = new SupplierMenu();
+            page.Show();
             this.Close();
         }
 
-        private void MainButtonClick(object sender, RoutedEventArgs e)
+        private void ItemGo_Click(object sender, RoutedEventArgs e)
         {
-            this.Show();
+            Page1 page = new Page1();
+            page.Show();
+            this.Close();
         }
     }
 }
