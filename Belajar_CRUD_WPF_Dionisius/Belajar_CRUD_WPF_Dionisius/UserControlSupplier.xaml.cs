@@ -27,6 +27,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         public UserControlSupplier()
         {
             InitializeComponent();
+            TableSupplier.ItemsSource = myContext.Suppliers.ToList();
         }
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)

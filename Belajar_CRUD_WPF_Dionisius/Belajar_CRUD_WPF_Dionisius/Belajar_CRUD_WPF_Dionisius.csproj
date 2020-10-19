@@ -188,6 +188,11 @@
   <ItemGroup>
     <Resource Include="Assets\close_btn_over.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\delete_btn.png" />
+    <Resource Include="Assets\input_btn.png" />
+    <Resource Include="Assets\update_btn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

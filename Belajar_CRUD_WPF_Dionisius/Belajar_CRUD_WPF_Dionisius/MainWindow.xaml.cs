@@ -30,6 +30,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             InitializeComponent();
             // Menampilkan DATA GRID
+            BG.Children.Add(UCSup);
         }
 
         private void ListViewItem_MouseEnter(object sender, RoutedEventArgs e)
@@ -75,7 +76,6 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             BG.Children.Remove(UCItem);
             BG.Children.Add(UCSup);
-            
         }
 
         private void Item_Selected(object sender, RoutedEventArgs e)

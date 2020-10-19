@@ -6,23 +6,40 @@
              xmlns:local="clr-namespace:Belajar_CRUD_WPF_Dionisius"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <!-- Style Data Grid -->
+    <UserControl.Resources>
+        <Style x:Key="dataGridTbl" TargetType="DataGrid">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource chs1}"/>
+        </Style>
+
+        <!-- Header -->
+        <Style x:Key="chs1" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid
+        VerticalAlignment="Center"
+        Height="380"
+        Margin="10 0 10 0">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0">
+        <StackPanel 
+            VerticalAlignment="Center"
+            Grid.Column="0">
 
-            <Grid Margin="80 100 10 0">
+            <Grid Margin="80 0 10 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="ID" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox 
-                            x:Name="textBoxId" Background="#eee" Margin="62,0,30.4,-0.4" Grid.ColumnSpan="2" Height="18" VerticalAlignment="Top"/>
+                <TextBox Margin="0 0 10 0" x:Name="textBoxId" Grid.Column="1" Background="#eee" Grid.ColumnSpan="2" Height="18" VerticalAlignment="Top"/>
             </Grid>
 
             <Grid Margin="80 30 10 0">
@@ -32,52 +49,117 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox 
-                            PreviewTextInput="textBoxName_PreviewTextInput"
-                            Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 30 0"/>
+                <TextBox PreviewTextInput="textBoxName_PreviewTextInput" Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 10 0"/>
             </Grid>
 
             <Grid Margin="70 40 20 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button 
-                            x:Name="btn_input" 
-                            Click="ButtonInputClick" 
-                            Content="Input" 
-                            Grid.Column="0" 
-                            Margin="0 0 10 0"
-                            />
-                <Button 
-                            x:Name="btn_update" 
-                            Click="ButtonUpdateClick" 
-                            Content="Update" 
-                            Grid.Column="1"
-                            />
+                <Button x:Name="btn_input" Click="ButtonInputClick" Grid.Column="0" Width="40" Height="40" VerticalAlignment="Top" Background="Beige" BorderBrush="Beige">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="./Assets/input_btn.png"/>
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="./Assets/input_btn.png"/>
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                </Button>
+                <Button x:Name="btn_update" Click="ButtonUpdateClick" Grid.Column="1" Width="40" Height="40" Background="Beige" BorderBrush="Beige">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="./Assets/update_btn.png"/>
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="./Assets/update_btn.png"/>
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btn_delete" Click="ButtonDeleteClick" Grid.Column="2" Width="40" Height="40" Background="Beige" BorderBrush="Beige">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="./Assets/delete_btn.png"/>
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="./Assets/delete_btn.png"/>
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
 
-            <Button 
-                        x:Name="btn_delete" 
-                        Click="ButtonDeleteClick" 
-                        Content="Delete" 
-                        Grid.Column="2" 
-                        Margin="70 0 20 20"
-                        />
 
 
         </StackPanel>
 
-        <DataGrid  x:Name="TableSupplier" SelectionChanged="TableSupplier_SelectionChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1" Padding="40" AlternatingRowBackground="#eee">
+        <DataGrid  x:Name="TableSupplier" 
+                   SelectionChanged="TableSupplier_SelectionChanged" 
+                   IsReadOnly="True" 
+                   AutoGenerateColumns="False" 
+                   Grid.Column="1"
+                   Background="#EEE"
+                   AlternatingRowBackground="LightGray"
+                   BorderBrush="Beige"
+                   BorderThickness="3"
+                   VerticalAlignment="Top"
+                   RowHeight="20"
+                   GridLinesVisibility="Horizontal"
+                   Style="{DynamicResource dataGridTbl}"
+                   HorizontalContentAlignment="Center">
+            
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
 
-
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="2*"/>
-
-
+                <DataGridTextColumn Header="NAME" Binding="{Binding Name}" Width="4*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
