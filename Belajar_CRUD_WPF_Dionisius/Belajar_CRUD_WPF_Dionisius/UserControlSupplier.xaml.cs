@@ -28,6 +28,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             InitializeComponent();
             TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+            textBoxId.IsEnabled = false;
         }
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
@@ -95,6 +96,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                     TableSupplier.ItemsSource = myContext.Suppliers.ToList();
                     textBoxName.Clear();
                     textBoxId.Clear();
+                    
                 }
                 else
                 {

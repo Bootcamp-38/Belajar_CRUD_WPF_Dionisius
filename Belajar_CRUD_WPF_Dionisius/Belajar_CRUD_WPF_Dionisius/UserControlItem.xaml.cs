@@ -32,6 +32,8 @@ namespace Belajar_CRUD_WPF_Dionisius
 
             var tipe = myContext.Suppliers.ToList();
             comboBoxSupplierId.ItemsSource = tipe;
+
+            textBoxId.IsEnabled = false;
         }
 
         private void TableItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -83,6 +85,8 @@ namespace Belajar_CRUD_WPF_Dionisius
                 MessageBox.Show("Input Berhasil", "Sukses");
                 TableItem.ItemsSource = myContext.Items.ToList();
                 textBoxName.Clear();
+                textBoxPrice.Clear();
+                textBoxStock.Clear();
             }
         }
 
@@ -111,6 +115,8 @@ namespace Belajar_CRUD_WPF_Dionisius
                 TableItem.ItemsSource = myContext.Items.ToList();
                 textBoxName.Clear();
                 textBoxId.Clear();
+                textBoxPrice.Clear();
+                textBoxStock.Clear();
             }
         }
 
@@ -136,6 +142,8 @@ namespace Belajar_CRUD_WPF_Dionisius
                     TableItem.ItemsSource = myContext.Items.ToList();
                     textBoxName.Clear();
                     textBoxId.Clear();
+                    textBoxPrice.Clear();
+                    textBoxStock.Clear();
                 }
                 else
                 {

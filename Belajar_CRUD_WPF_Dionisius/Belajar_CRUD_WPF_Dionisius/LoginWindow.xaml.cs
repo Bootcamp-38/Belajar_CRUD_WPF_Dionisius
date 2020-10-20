@@ -55,7 +55,6 @@ namespace Belajar_CRUD_WPF_Dionisius
                 else
                 {
                     MessageBox.Show("Username atau Password yang anda masukkan salah");
-                    emailTextBox.Clear();
                     passwordTextBox.Clear();
                 }
             }

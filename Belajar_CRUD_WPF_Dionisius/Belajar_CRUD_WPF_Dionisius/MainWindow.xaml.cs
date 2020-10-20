@@ -69,7 +69,7 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void Supplier_Selected(object sender, RoutedEventArgs e)
