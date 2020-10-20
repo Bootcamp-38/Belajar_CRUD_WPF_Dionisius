@@ -15,5 +15,7 @@ namespace Belajar_CRUD_WPF_Dionisius.Context
         public DbSet<Supplier> Suppliers { get; set; }
 
         public DbSet<Item> Items { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

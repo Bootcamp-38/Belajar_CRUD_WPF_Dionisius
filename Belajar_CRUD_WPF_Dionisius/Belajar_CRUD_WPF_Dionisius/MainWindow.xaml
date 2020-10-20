@@ -18,7 +18,7 @@
         <Style x:Key="font_style" TargetType="TextBlock">
 
             <Setter Property="FontFamily"
-                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
+                    Value="./Assets/BAHNSCHRIFT.ttf #Bahnscrift"/>
 
             <Setter Property="VerticalAlignment"
                     Value="Center"/>
@@ -31,6 +31,9 @@
 
             <Setter Property="FontSize"
                     Value="20"/>
+
+            <Setter Property="FontWeight"
+                    Value="Bold"/>
         </Style>
 
         <!--// Tooltip Style Template //-->
@@ -191,25 +194,21 @@
                         <!--Menu Title Text-->
                         <TextBlock Grid.Row="1"
                                    Grid.Column="0"
-                                   Margin="73, -20, 0, 0"
                                    Text="M E N U"
                                    Foreground="Black"
                                    Background="Transparent"
                                    HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10"
-                                                  ShadowDepth="1"
-                                                  Direction="-90"
-                                                  Color="Black"/>
-                            </TextBlock.Effect>
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource font_style}"
+                                   Margin="75, 0, 0, 0">
+
                         </TextBlock>
                         <!--Toggle button-->
                         <ToggleButton x:Name="Tg_btn"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
                                       HorizontalAlignment="Left"
-                                      Margin="18, -20, 0, 0"
+                                      Margin="18, 0, 0, 0"
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"

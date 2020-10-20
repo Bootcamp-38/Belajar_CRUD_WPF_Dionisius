@@ -42,3 +42,7 @@ D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\UserControlItem.baml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\UserControlSupplier.baml
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\LoginWindow.g.cs
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\App.baml
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\LoginWindow.baml
+D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\Belajar_CRUD_WPF_Dionisius.Migrations.addTableUser.resources

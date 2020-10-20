@@ -86,12 +86,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010200139161_addTableUser.cs" />
+    <Compile Include="Migrations\202010200139161_addTableUser.designer.cs">
+      <DependentUpon>202010200139161_addTableUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="UserControlItem.xaml.cs">
       <DependentUpon>UserControlItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlSupplier.xaml.cs">
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,10 +171,14 @@
     <EmbeddedResource Include="Migrations\202010160820176_addmodelitem3.resx">
       <DependentUpon>202010160820176_addmodelitem3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010200139161_addTableUser.resx">
+      <DependentUpon>202010200139161_addTableUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\BAHNSCHRIFT.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

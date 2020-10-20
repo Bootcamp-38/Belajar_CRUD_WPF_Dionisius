@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Belajar_CRUD_WPF_Dionisius"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" FontFamily="/Belajar_CRUD_WPF_Dionisius;component/Assets/#Bahnschrift Light">
     <!-- Style Data Grid -->
     <UserControl.Resources>
         <Style x:Key="dataGridTbl" TargetType="DataGrid">
@@ -16,13 +16,113 @@
         <Style x:Key="chs1" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
+
+        <!-- Button Styling -->
+        <ImageBrush x:Key="input_btn_img" ImageSource="./Assets/input_btn.png"/>
+        <ImageBrush x:Key="update_btn_img" ImageSource="./Assets/update_btn.png"/>
+        <ImageBrush x:Key="delete_btn_img" ImageSource="./Assets/delete_btn.png"/>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="input_style" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource input_btn_img}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource input_btn_img}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="update_style" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource update_btn_img}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource update_btn_img}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </UserControl.Resources>
-    
+
     <Grid
         VerticalAlignment="Center"
         Height="380"
         Margin="10 0 10 0">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -39,7 +139,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="ID" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox Margin="0 0 10 0" x:Name="textBoxId" Grid.Column="1" Background="#eee" Grid.ColumnSpan="2" Height="18" VerticalAlignment="Top"/>
+                <TextBox Margin="0 0 10 0" x:Name="textBoxId" Grid.Column="1" Background="#EEE" Grid.ColumnSpan="2"  Height="18" VerticalAlignment="Center" Foreground="Black" BorderBrush="Black" FontFamily="/Belajar_CRUD_WPF_Dionisius;component/Assets/#Bahnschrift Light"/>
             </Grid>
 
             <Grid Margin="80 30 10 0">
@@ -49,7 +149,9 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox PreviewTextInput="textBoxName_PreviewTextInput" Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 10 0"/>
+                <TextBox 
+                    Height="18"
+                    PreviewTextInput="textBoxName_PreviewTextInput" Grid.Column="1" x:Name="textBoxName" Background="#eee" Margin="0 0 10 0" BorderBrush="Black" FontFamily="/Belajar_CRUD_WPF_Dionisius;component/Assets/#Bahnschrift Light"/>
             </Grid>
 
             <Grid Margin="70 40 20 20">
@@ -59,50 +161,20 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="btn_input" Click="ButtonInputClick" Grid.Column="0" Width="40" Height="40" VerticalAlignment="Top" Background="Beige" BorderBrush="Beige">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="./Assets/input_btn.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="./Assets/input_btn.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                <Button x:Name="btn_input" Click="ButtonInputClick" Grid.Column="0" Width="40" Height="40" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Center" Style="{DynamicResource input_style}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="./Assets/input_btn.png"/>
+                    </Button.Background>
 
                 </Button>
-                <Button x:Name="btn_update" Click="ButtonUpdateClick" Grid.Column="1" Width="40" Height="40" Background="Beige" BorderBrush="Beige">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="./Assets/update_btn.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="./Assets/update_btn.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                <Button x:Name="btn_update" Click="ButtonUpdateClick" Grid.Column="1" Width="40" Height="40" BorderBrush="Transparent"  Margin="30,0" 
+                        VerticalAlignment="Top" Style="{DynamicResource update_style}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="./Assets/update_btn.png"/>
+                    </Button.Background>
                 </Button>
-                <Button x:Name="btn_delete" Click="ButtonDeleteClick" Grid.Column="2" Width="40" Height="40" Background="Beige" BorderBrush="Beige">
+
+                <Button x:Name="btn_delete" Click="ButtonDeleteClick" Grid.Column="2" Width="40" Height="40" Background="Transparent" BorderBrush="Transparent">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
                             <Image Source="./Assets/delete_btn.png"/>
@@ -143,12 +215,13 @@
                    GridLinesVisibility="Horizontal"
                    Style="{DynamicResource dataGridTbl}"
                    HorizontalContentAlignment="Center">
-            
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Foreground" Value="Black"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
