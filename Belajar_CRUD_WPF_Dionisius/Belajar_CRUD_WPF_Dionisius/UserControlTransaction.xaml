@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Belajar_CRUD_WPF_Dionisius.UserControlItem"
+﻿<UserControl x:Class="Belajar_CRUD_WPF_Dionisius.UserControlTransaction"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -107,46 +107,10 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="NAME" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox 
-                    Margin="0 0 10 0"
-                    PreviewTextInput="textBoxName_PreviewTextInput"
-                    Grid.Column="1" x:Name="textBoxName" Background="#eee"/>
+                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Date" TextAlignment="Left" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBox Margin="0 0 10 0" Grid.Column="1" x:Name="textBoxDate" Background="#eee"/>
             </Grid>
 
-            <Grid Margin="80 30 10 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Supplier" TextAlignment="Left" FontWeight="Bold"/>
-
-                <ComboBox Margin="0 0 10 0" Grid.Column="1" x:Name="comboBoxSupplierId" Background="#eee" ItemsSource="{Binding Supplier}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="comboBoxSupplierId_SelectionChanged_1">
-
-
-                </ComboBox>
-            </Grid>
-
-            <Grid Margin="80 30 10 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Stock" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox Margin="0 0 10 0" Grid.Column="1" x:Name="textBoxStock" Background="#eee"/>
-            </Grid>
-
-            <Grid Margin="80 30 10 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Price" TextAlignment="Left" FontWeight="Bold"/>
-                <TextBox Margin="0 0 10 0" Grid.Column="1" x:Name="textBoxPrice" Background="#eee"/>
-            </Grid>
 
             <Grid Margin="62,40,7.6,20">
                 <Grid.ColumnDefinitions>
@@ -192,7 +156,7 @@
 
         </StackPanel>
 
-        <DataGrid x:Name="TableItem" 
+        <DataGrid x:Name="TableTransaction" 
                   SelectionChanged="TableItem_SelectionChanged" 
                   IsReadOnly="True" 
                   AutoGenerateColumns="False" 
@@ -217,7 +181,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*">
+                <DataGridTextColumn Header="Name" Binding="{Binding Date}" Width="3*">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -225,48 +189,6 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-
-                <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier.Name}" Width="*">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="*">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="2*">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <!--<DataGridTemplateColumn Header="Update" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Click="ButtonUpdateClick">
-                                <materialDesign:PackIcon Kind="Update"/>
-                                <Button.ToolTip>
-                                    <ToolTip>
-                                        Update Data
-                                    </ToolTip>
-                                </Button.ToolTip>
-                            </Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
 
                 <DataGridTemplateColumn Header="Delete" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

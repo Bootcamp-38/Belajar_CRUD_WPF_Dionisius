@@ -264,14 +264,12 @@
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      Selected="Supplier_Selected">
+                                      Selected="Supplier_Selected" x:Name="Sup">
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="./Assets/sup_btn.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                <materialDesign:PackIcon Kind="AccountBox" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
 
                                 <TextBlock Text="Supplier"
                                            Margin="25,0,0,0"
@@ -293,14 +291,12 @@
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      Selected="Item_Selected">
+                                      Selected="Item_Selected" x:Name="It">
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="./Assets/item_btn.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                <materialDesign:PackIcon Kind="Work" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
 
                                 <TextBlock Text="Item"
                                            Margin="25,0,0,0"
@@ -320,20 +316,41 @@
 
                         </ListViewItem>
 
+                        <!--// Transaction //-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Selected="Trans_Selected" x:Name="Tran">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <materialDesign:PackIcon Kind="DateRange" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Item"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <!--// Tooltip //-->
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_transaction"
+                                         Content="Transaction"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+                        
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
                                       Selected="logout_btn_Click">
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <!--<Button x:Name="logout_btn" Click="logout_btn_Click" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,0,0,0">
-                                    <materialDesign:PackIcon Kind="Logout" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    --><!--<Button.ToolTip>
-                                        <ToolTip x:Name="tt_logout"
-                                         Content="Logout"
-                                         Style="{StaticResource tt_style}"/>
-                                    </Button.ToolTip>--><!--
-                                </Button>-->
 
                                 <materialDesign:PackIcon Kind="Logout" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
 

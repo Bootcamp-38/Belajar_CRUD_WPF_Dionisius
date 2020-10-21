@@ -24,7 +24,6 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class LoginWindow : Window
     {
-        string constring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Belajar_CRUD_WPF_Dionisius;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         MyContext myContext = new MyContext();
         public LoginWindow()
         {
@@ -118,11 +117,6 @@ namespace Belajar_CRUD_WPF_Dionisius
 
                 }
             }
-
-            
-
-
-
         }
     }
 }

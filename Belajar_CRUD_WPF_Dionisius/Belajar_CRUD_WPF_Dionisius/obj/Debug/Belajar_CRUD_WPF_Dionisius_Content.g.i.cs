@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/delete_btn.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/input_btn.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/update_btn.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/transaction_btn.png")]
 
 

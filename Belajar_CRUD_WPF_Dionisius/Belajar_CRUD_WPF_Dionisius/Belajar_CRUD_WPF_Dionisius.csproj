@@ -96,6 +96,20 @@
     <Compile Include="Migrations\202010200139161_addTableUser.designer.cs">
       <DependentUpon>202010200139161_addTableUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010210658182_addTableTransactionItem.cs" />
+    <Compile Include="Migrations\202010210658182_addTableTransactionItem.designer.cs">
+      <DependentUpon>202010210658182_addTableTransactionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010210701518_addTableTransaction.cs" />
+    <Compile Include="Migrations\202010210701518_addTableTransaction.designer.cs">
+      <DependentUpon>202010210701518_addTableTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010210704541_addTableTransactionItem2.cs" />
+    <Compile Include="Migrations\202010210704541_addTableTransactionItem2.designer.cs">
+      <DependentUpon>202010210704541_addTableTransactionItem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="T.cs" />
     <Compile Include="UserControlItem.xaml.cs">
@@ -103,6 +117,12 @@
     </Compile>
     <Compile Include="UserControlSupplier.xaml.cs">
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTransaction.xaml.cs">
+      <DependentUpon>UserControlTransaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTransactionItem.xaml.cs">
+      <DependentUpon>UserControlTransactionItem.xaml</DependentUpon>
     </Compile>
     <Page Include="changePassword.xaml">
       <SubType>Designer</SubType>
@@ -130,6 +150,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTransactionItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,6 +210,15 @@
     <EmbeddedResource Include="Migrations\202010200139161_addTableUser.resx">
       <DependentUpon>202010200139161_addTableUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010210658182_addTableTransactionItem.resx">
+      <DependentUpon>202010210658182_addTableTransactionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010210701518_addTableTransaction.resx">
+      <DependentUpon>202010210701518_addTableTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010210704541_addTableTransactionItem2.resx">
+      <DependentUpon>202010210704541_addTableTransactionItem2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -216,6 +253,9 @@
     <Resource Include="Assets\delete_btn.png" />
     <Resource Include="Assets\input_btn.png" />
     <Resource Include="Assets\update_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\transaction_btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

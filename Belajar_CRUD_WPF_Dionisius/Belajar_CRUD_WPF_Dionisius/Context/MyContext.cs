@@ -17,5 +17,8 @@ namespace Belajar_CRUD_WPF_Dionisius.Context
         public DbSet<Item> Items { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<TransactionItem> TransactionItems { get; set; }
     }
 }
