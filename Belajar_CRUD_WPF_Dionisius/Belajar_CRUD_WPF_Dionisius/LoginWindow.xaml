@@ -23,7 +23,7 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
+    <Grid x:Name="BG">
         <Rectangle Height="250" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -46,13 +46,23 @@
                 <PasswordBox x:Name="passwordTextBox" Margin="0,10" materialDesign:HintAssist.Hint="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="/Belajar_CRUD_WPF_Dionisius;component/Assets/#Bahnschrift Light" FontSize="18"/>
             </StackPanel>
         </Grid>
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN" FontWeight="Bold"
+        <Button x:Name="login_btn" 
+            Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN" FontWeight="Bold"
                 Background="Gray"
                 BorderBrush="Transparent"
                 Click="Button_Click"/>
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Click="Button_Click_1">
             <materialDesign:PackIcon Kind="Close" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
+
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 0 0 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="forgot_btn" Click="forgot_btn_Click"
+                Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black">Forgot Password?</Button>
+        </Grid>
         <!--<TextBlock Text="ESQUECEU A SENHA?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>-->
         <!--<Image Source="./Assets/input_btn.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>-->
     </Grid>

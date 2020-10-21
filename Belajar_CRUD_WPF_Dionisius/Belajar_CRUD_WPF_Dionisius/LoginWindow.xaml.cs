@@ -64,5 +64,36 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             App.Current.Shutdown();
         }
+
+        private void forgot_btn_Click(object sender, RoutedEventArgs e)
+        {
+            //App.Current.Shutdown();
+            //BG.Opacity = 0.3;
+            //login_btn.IsEnabled = false;
+            //passwordTextBox.IsEnabled = false;
+            //emailTextBox.IsEnabled = false;
+
+            Guid newGuid = Guid.NewGuid();
+
+            string usernameCheck = emailTextBox.Text;
+
+            if (myContext.Users.Any(a => a.UserName == usernameCheck))
+            {
+                var passChange = myContext.Users.Where(m => m.UserName == usernameCheck).Single();
+                passChange.Password = newGuid.ToString();
+                myContext.SaveChanges();
+
+                MessageBox.Show("Token telah terkirim. Silahkan cek email anda!!!");
+
+                changePassword change = new changePassword();
+                change.Show();
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show($"Username yang anda masukkan salah");
+            }
+        }
     }
 }

@@ -31,14 +31,17 @@ namespace Belajar_CRUD_WPF_Dionisius
 
             TableItem.ItemsSource = myContext.Items.ToList();
 
+            textBoxId.IsEnabled = false;
+
             comboBoxUpdate();
 
-            textBoxId.IsEnabled = false;
         }
 
         public void comboBoxUpdate()
         {
             var tipe = myContext.Suppliers.ToList();
+            var supId = myContext.Suppliers.First();
+            myContext.Entry(supId).Reload();
             comboBoxSupplierId.ItemsSource = tipe;
         }
 
@@ -184,6 +187,13 @@ namespace Belajar_CRUD_WPF_Dionisius
             {
 
             }
+        }
+
+        private void refresh_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TableItem.ItemsSource = myContext.Items.ToList();
+
+            comboBoxUpdate();
         }
     }
 }

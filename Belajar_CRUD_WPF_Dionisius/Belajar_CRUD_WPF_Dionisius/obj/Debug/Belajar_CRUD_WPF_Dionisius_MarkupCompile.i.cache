@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\App.xaml
-4874395517
+6236610582
 
-25-847179349
+27-1704625878
 251795219274
-LoginWindow.xaml;MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;
+changePassword.xaml;ForgotPassword.xaml;LoginWindow.xaml;MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;
 
 True
 

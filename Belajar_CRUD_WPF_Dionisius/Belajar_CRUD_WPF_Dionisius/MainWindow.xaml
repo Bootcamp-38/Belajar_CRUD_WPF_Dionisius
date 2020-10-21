@@ -167,7 +167,8 @@
                     <RowDefinition Height="*"/>
                     
                 </Grid.RowDefinitions>
-                
+
+
                 <Button x:Name="CloseBtn"
                         Grid.Column="2"
                         Height="20"
@@ -426,5 +427,6 @@
             </Grid>
 
         </Grid>
+        
     </Grid>
 </Window>
