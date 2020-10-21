@@ -48,17 +48,25 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
-                User user = myContext.Users.Where(check => check.UserName == emailTextBox.Text).Single();
-                if(user.UserName == emailTextBox.Text && user.Password == passwordTextBox.Password)
+
+                if(myContext.Users.Any(a => a.UserName == emailTextBox.Text))
                 {
-                    MainWindow main = new MainWindow();
-                    main.Show();
-                    this.Close();
+                    User user = myContext.Users.Where(check => check.UserName == emailTextBox.Text).Single();
+                    if (user.UserName == emailTextBox.Text && user.Password == passwordTextBox.Password)
+                    {
+                        MainWindow main = new MainWindow();
+                        main.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username atau Password yang anda masukkan salah");
+                        passwordTextBox.Clear();
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Username atau Password yang anda masukkan salah");
-                    passwordTextBox.Clear();
                 }
             }
         }

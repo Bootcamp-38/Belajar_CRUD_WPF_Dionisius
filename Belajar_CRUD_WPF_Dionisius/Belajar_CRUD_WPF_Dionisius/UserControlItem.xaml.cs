@@ -149,10 +149,19 @@ namespace Belajar_CRUD_WPF_Dionisius
                     int Id = (TableItem.SelectedItem as Item).Id;
 
                     var deleteSupplier = myContext.Items.Where(delete => delete.Id == Id).Single();
-                    myContext.Items.Remove(deleteSupplier);
-                    myContext.SaveChanges();
+                    
+                    if(myContext.TransactionItems.Any(b => b.Item.Id == Id))
+                    {
+                        MessageBox.Show("Data sedang digunakan", "WARNING!!!");
+                    }
+                    else
+                    {
+                        myContext.Items.Remove(deleteSupplier);
+                        myContext.SaveChanges();
 
-                    MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
+                        MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
+                    }
+                    
                     TableItem.ItemsSource = myContext.Items.ToList();
                     textBoxName.Clear();
                     textBoxId.Clear();

@@ -127,13 +127,18 @@ namespace Belajar_CRUD_WPF_Dionisius
 
                     Transaction deleteTransaction = myContext.Transactions.Where(delete => delete.Id == Id).Single();
 
-                    myContext.Transactions.Remove(deleteTransaction);
+                    if(myContext.TransactionItems.Any(a => a.Transaction.Id == Id))
+                    {
+                        MessageBox.Show("Data sedang digunakan", "WARNING!!!");
+                    }
+                    else
+                    {
+                        myContext.Transactions.Remove(deleteTransaction);
 
-                    myContext.SaveChanges();
+                        myContext.SaveChanges();
 
-                    MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
-
-
+                        MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
+                    }
                     TableTransaction.ItemsSource = myContext.Transactions.ToList();
                     textBoxDate.Clear();
                     textBoxId.Clear();
