@@ -27,6 +27,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         UserControlSupplier UCSup = new UserControlSupplier();
         UserControlItem UCItem = new UserControlItem();
         UserControlTransaction UCTrans = new UserControlTransaction();
+        UserControlTransactionItem UCTi = new UserControlTransactionItem();
         public MainWindow()
         {
             InitializeComponent();
@@ -82,6 +83,7 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
+                BG.Children.Remove(UCTi);
                 BG.Children.Remove(UCItem);
                 BG.Children.Remove(UCTrans);
                 BG.Children.Add(UCSup);
@@ -97,6 +99,7 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
+                BG.Children.Remove(UCTi);
                 BG.Children.Remove(UCSup);
                 BG.Children.Remove(UCTrans);
                 BG.Children.Add(UCItem);
@@ -112,9 +115,26 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
+                BG.Children.Remove(UCTi);
                 BG.Children.Remove(UCSup);
                 BG.Children.Remove(UCItem);
                 BG.Children.Add(UCTrans);
+            }
+        }
+
+        private void TransItem_Selected(object sender, RoutedEventArgs e)
+        {
+            if (BG.Children.Contains(UCTi))
+            {
+                BG.Children.Remove(UCTi);
+                BG.Children.Add(UCTi);
+            }
+            else
+            {
+                BG.Children.Remove(UCSup);
+                BG.Children.Remove(UCItem);
+                BG.Children.Remove(UCTrans);
+                BG.Children.Add(UCTi);
             }
         }
 

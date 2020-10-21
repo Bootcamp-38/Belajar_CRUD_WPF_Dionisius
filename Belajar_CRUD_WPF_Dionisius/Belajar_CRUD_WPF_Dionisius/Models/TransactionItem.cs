@@ -14,14 +14,14 @@ namespace Belajar_CRUD_WPF_Dionisius.Models
         [Key]
         public int Id { get; set; }
         public int Number { get; set; }
-        public Supplier Supplier { get; set; }
+        public Item Item { get; set; }
         public Transaction Transaction { get; set; }
 
         public TransactionItem() { }
-        public TransactionItem(int number, Supplier supplier, Transaction transaction)
+        public TransactionItem(int number, Item item, Transaction transaction)
         {
             this.Number = number;
-            this.Supplier = supplier;
+            this.Item = item;
             this.Transaction = transaction;
         }
     }

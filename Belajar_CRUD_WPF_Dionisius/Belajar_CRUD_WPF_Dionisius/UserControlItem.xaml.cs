@@ -84,11 +84,6 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
-                //string InputSupName = comboBoxSupplierId.SelectedItem.ToString();
-                //var SupplyName = (from m in myContext.Items.Include("Supplier") where m.Supplier.Name == InputSupName select m.Id).Single();
-                //MessageBox.Show(SupplyName);
-
-                //Item updateSupplier = (from m in myContext.Items where m.Id == Id select m).Single();
                 var suppliernameInput = myContext.Suppliers.Where(m => m.Id == cb_sup).FirstOrDefault();
                 var input = new Item(textBoxName.Text, Convert.ToInt32(textBoxPrice.Text), Convert.ToInt32(textBoxStock.Text), suppliernameInput);
 

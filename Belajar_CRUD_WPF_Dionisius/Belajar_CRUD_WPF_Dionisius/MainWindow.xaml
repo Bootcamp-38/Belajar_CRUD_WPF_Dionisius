@@ -344,7 +344,36 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-                        
+
+                        <!--// Transaction Item //-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Selected="TransItem_Selected" x:Name="TransItem">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <materialDesign:PackIcon Kind="Sitemap" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Item"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <!--// Tooltip //-->
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_transactionItem"
+                                         Content="Transaction Item"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
                                       Selected="logout_btn_Click">
