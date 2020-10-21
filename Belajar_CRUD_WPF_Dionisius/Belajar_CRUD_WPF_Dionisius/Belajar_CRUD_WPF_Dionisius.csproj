@@ -89,9 +89,6 @@
     <Compile Include="changePassword.xaml.cs">
       <DependentUpon>changePassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ForgotPassword.xaml.cs">
-      <DependentUpon>ForgotPassword.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -108,10 +105,6 @@
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
     </Compile>
     <Page Include="changePassword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ForgotPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

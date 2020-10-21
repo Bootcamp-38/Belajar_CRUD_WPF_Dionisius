@@ -46,7 +46,5 @@ D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\App.baml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\LoginWindow.baml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\Belajar_CRUD_WPF_Dionisius.Migrations.addTableUser.resources
-D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\ForgotPassword.g.cs
-D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\ForgotPassword.baml
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\changePassword.g.cs
 D:\Github\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\Belajar_CRUD_WPF_Dionisius\obj\Debug\changePassword.baml

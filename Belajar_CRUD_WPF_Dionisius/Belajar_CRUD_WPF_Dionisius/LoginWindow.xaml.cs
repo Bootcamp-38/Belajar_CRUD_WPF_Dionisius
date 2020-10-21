@@ -2,7 +2,10 @@
 using Belajar_CRUD_WPF_Dionisius.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +24,7 @@ namespace Belajar_CRUD_WPF_Dionisius
     /// </summary>
     public partial class LoginWindow : Window
     {
+        string constring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Belajar_CRUD_WPF_Dionisius;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         MyContext myContext = new MyContext();
         public LoginWindow()
         {
@@ -67,33 +71,57 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void forgot_btn_Click(object sender, RoutedEventArgs e)
         {
-            //App.Current.Shutdown();
-            //BG.Opacity = 0.3;
-            //login_btn.IsEnabled = false;
-            //passwordTextBox.IsEnabled = false;
-            //emailTextBox.IsEnabled = false;
-
-            Guid newGuid = Guid.NewGuid();
-
-            string usernameCheck = emailTextBox.Text;
-
-            if (myContext.Users.Any(a => a.UserName == usernameCheck))
+            if (emailTextBox.Text == string.Empty)
             {
-                var passChange = myContext.Users.Where(m => m.UserName == usernameCheck).Single();
-                passChange.Password = newGuid.ToString();
-                myContext.SaveChanges();
-
-                MessageBox.Show("Token telah terkirim. Silahkan cek email anda!!!");
-
-                changePassword change = new changePassword();
-                change.Show();
-                this.Close();
-
+                MessageBox.Show("Email harus diisi", "Warning!", MessageBoxButton.OK);
             }
             else
             {
-                MessageBox.Show($"Username yang anda masukkan salah");
+                if (!myContext.Users.Any(x => x.UserName == emailTextBox.Text))
+                {
+                    MessageBox.Show("Email anda tidak terdaftar", "Caution!", MessageBoxButton.OK);
+                    emailTextBox.Clear();
+                    emailTextBox.Focus();
+                }
+                else
+                {
+                    Guid id = Guid.NewGuid();
+                    string guid = id.ToString();
+                    User updateUser = (from m in myContext.Users where m.UserName == emailTextBox.Text select m).FirstOrDefault();
+
+                    updateUser.Password = id.ToString();
+                    myContext.SaveChanges();
+
+                    string PasswordText = "Masukkan Token ini pada Layar Anda: " + guid;
+
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp.gmail.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("dionisiusyose11@gmail.com", "gmaildion1997");
+                    MailMessage mm =
+                        new MailMessage("donotreply@gmail.com", emailTextBox.Text
+                        , "Secret!", PasswordText);
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                    client.Send(mm);
+
+                    MessageBox.Show("Token telah terkirim. Silahkan cek email anda!!!");
+
+                    changePassword change = new changePassword();
+                    change.Show();
+                    this.Close();
+
+                }
             }
+
+            
+
+
+
         }
     }
 }
