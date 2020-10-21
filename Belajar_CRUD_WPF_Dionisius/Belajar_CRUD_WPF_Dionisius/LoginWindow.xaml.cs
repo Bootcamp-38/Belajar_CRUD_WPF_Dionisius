@@ -59,5 +59,10 @@ namespace Belajar_CRUD_WPF_Dionisius
                 }
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

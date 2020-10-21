@@ -94,6 +94,7 @@
       <DependentUpon>202010200139161_addTableUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
+    <Compile Include="T.cs" />
     <Compile Include="UserControlItem.xaml.cs">
       <DependentUpon>UserControlItem.xaml</DependentUpon>
     </Compile>

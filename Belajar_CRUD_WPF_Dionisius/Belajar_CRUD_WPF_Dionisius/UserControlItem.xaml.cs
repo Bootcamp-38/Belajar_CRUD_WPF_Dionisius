@@ -28,16 +28,24 @@ namespace Belajar_CRUD_WPF_Dionisius
         public UserControlItem()
         {
             InitializeComponent();
-            TableItem.ItemsSource = myContext.Items.Include("Supplier").ToList();
 
-            var tipe = myContext.Suppliers.ToList();
-            comboBoxSupplierId.ItemsSource = tipe;
+            TableItem.ItemsSource = myContext.Items.ToList();
+
+            comboBoxUpdate();
 
             textBoxId.IsEnabled = false;
         }
 
+        public void comboBoxUpdate()
+        {
+            var tipe = myContext.Suppliers.ToList();
+            comboBoxSupplierId.ItemsSource = tipe;
+        }
+
         private void TableItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            comboBoxUpdate();
+            
             try
             {
                 object item = TableItem.SelectedItem;
@@ -53,6 +61,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 textBoxPrice.Text = Price;
                 string Stock = (TableItem.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
                 textBoxStock.Text = Stock;
+
             }
             catch (Exception)
             {
@@ -62,6 +71,7 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
         {
+            comboBoxUpdate();
 
             if (textBoxName.Text == string.Empty || comboBoxSupplierId.SelectedItem == null)
             {
@@ -87,11 +97,14 @@ namespace Belajar_CRUD_WPF_Dionisius
                 textBoxName.Clear();
                 textBoxPrice.Clear();
                 textBoxStock.Clear();
+                comboBoxSupplierId.SelectedItem = null;
             }
         }
 
         private void ButtonUpdateClick(object sender, RoutedEventArgs e)
         {
+            comboBoxUpdate();
+
             if (textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
             {
                 MessageBox.Show("Pilih Data Terlebih Dahulu", "Peringatan");
@@ -117,11 +130,14 @@ namespace Belajar_CRUD_WPF_Dionisius
                 textBoxId.Clear();
                 textBoxPrice.Clear();
                 textBoxStock.Clear();
+                comboBoxSupplierId.SelectedItem = null;
             }
         }
 
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
         {
+            comboBoxUpdate();
+
             if (textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
             {
                 MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
@@ -144,6 +160,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                     textBoxId.Clear();
                     textBoxPrice.Clear();
                     textBoxStock.Clear();
+                    comboBoxSupplierId.SelectedItem = null;
                 }
                 else
                 {

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Belajar_CRUD_WPF_Dionisius"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         ResizeMode="NoResize"
@@ -164,8 +165,9 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
+                    
                 </Grid.RowDefinitions>
-
+                
                 <Button x:Name="CloseBtn"
                         Grid.Column="2"
                         Height="20"
@@ -317,6 +319,39 @@
 
                         </ListViewItem>
 
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Selected="logout_btn_Click">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <!--<Button x:Name="logout_btn" Click="logout_btn_Click" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,0,0,0">
+                                    <materialDesign:PackIcon Kind="Logout" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    --><!--<Button.ToolTip>
+                                        <ToolTip x:Name="tt_logout"
+                                         Content="Logout"
+                                         Style="{StaticResource tt_style}"/>
+                                    </Button.ToolTip>--><!--
+                                </Button>-->
+
+                                <materialDesign:PackIcon Kind="Logout" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Logout"
+                                           Margin="17,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_logout"
+                                         Content="Logout"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
                         <ListView.ItemContainerStyle>
 
                             <Style TargetType="ListViewItem">
@@ -374,6 +409,18 @@
                         </ListView.ItemContainerStyle>
 
                     </ListView>
+
+                    <!--<Button x:Name="logout_btn" Click="logout_btn_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Kind="Logout" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <Button.ToolTip>
+                            <ToolTip x:Name="logout"
+                                         Content="Logout"
+                                         Style="{StaticResource tt_style}"/>
+                        </Button.ToolTip>
+                        
+                    </Button>-->
+
                 </StackPanel>
 
             </Grid>

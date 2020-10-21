@@ -98,5 +98,26 @@ namespace Belajar_CRUD_WPF_Dionisius
                 BG.Children.Add(UCItem);
             }
         }
+
+        private void logout_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Logout", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                result = MessageBox.Show("Yakin???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if(result == MessageBoxResult.Yes)
+                {
+                    LoginWindow login = new LoginWindow();
+                    login.Show();
+                    this.Close();
+                }
+                else { }
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

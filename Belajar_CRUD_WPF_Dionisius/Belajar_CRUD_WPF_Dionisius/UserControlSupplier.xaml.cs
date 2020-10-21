@@ -2,6 +2,7 @@
 using Belajar_CRUD_WPF_Dionisius.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -29,6 +30,9 @@ namespace Belajar_CRUD_WPF_Dionisius
             InitializeComponent();
             TableSupplier.ItemsSource = myContext.Suppliers.ToList();
             textBoxId.IsEnabled = false;
+            //var supplier = myContext.Suppliers;
+
+            //myContext.Entry<T>(supplier).Reload();
         }
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
@@ -43,6 +47,7 @@ namespace Belajar_CRUD_WPF_Dionisius
             {
                 var input = new Supplier(textBoxName.Text);
                 myContext.Suppliers.Add(input);
+
                 myContext.SaveChanges();
 
                 MessageBox.Show("Input Berhasil", "Sukses");
@@ -60,48 +65,78 @@ namespace Belajar_CRUD_WPF_Dionisius
             }
             else
             {
-                int Id = (TableSupplier.SelectedItem as Supplier).Id;
+                try
+                {
+                    int Id = (TableSupplier.SelectedItem as Supplier).Id;
 
-                Supplier updateSupplier = myContext.Suppliers.Where(update => update.Id == Id).Single();
+                    Supplier updateSupplier = myContext.Suppliers.Where(update => update.Id == Id).Single();
 
-                updateSupplier.Name = textBoxName.Text;
-                myContext.SaveChanges();
+                    updateSupplier.Name = textBoxName.Text;
+                    myContext.SaveChanges();
 
-                MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
-                TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                textBoxName.Clear();
-                textBoxId.Clear();
+                    MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
+                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                    textBoxName.Clear();
+                    textBoxId.Clear();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Data tidak bisa diupdate karena dipakai di Item", "WARNING");
+                }
+                
             }
         }
 
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
         {
-            if (textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
-            }
-            else
-            {
-                MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Menghapus Data???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (result == MessageBoxResult.Yes)
+                if (textBoxName.Text == string.Empty || textBoxId.Text == string.Empty)
                 {
-                    int Id = (TableSupplier.SelectedItem as Supplier).Id;
-
-                    var deleteSupplier = myContext.Suppliers.Where(delete => delete.Id == Id).Single();
-                    myContext.Suppliers.Remove(deleteSupplier);
-                    myContext.SaveChanges();
-
-                    MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
-                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
-                    textBoxName.Clear();
-                    textBoxId.Clear();
-                    
+                    MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
                 }
                 else
                 {
-                    TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                    MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Menghapus Data???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int Id = (TableSupplier.SelectedItem as Supplier).Id;
+
+                        Supplier deleteSupplier = myContext.Suppliers.Where(delete => delete.Id == Id).Single();
+
+                        if(myContext.Items.Any(a => a.Supplier.Id == Id))
+                        {
+                            //Item itemDelete = myContext.Items.Where(n => n.Supplier.Id == Id).Single();
+                            //itemDelete.Supplier = null;
+                            
+                            MessageBox.Show("Data sedang digunakan", "WARNING!!!");
+                        }
+                        else
+                        {
+                            myContext.Suppliers.Remove(deleteSupplier);
+
+                            myContext.SaveChanges();
+
+                            MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
+                        }
+
+                        TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                        textBoxName.Clear();
+                        textBoxId.Clear();
+
+                    }
+                    else
+                    {
+                        TableSupplier.ItemsSource = myContext.Suppliers.ToList();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Data tidak dapat dihapus");
+                textBoxName.Clear();
+                textBoxId.Clear();
             }
         }
 
@@ -115,6 +150,7 @@ namespace Belajar_CRUD_WPF_Dionisius
         {
             try
             {
+                //myContext.SaveChanges();
                 object item = TableSupplier.SelectedItem;
 
                 // Memanggil Tabel ke TextBox
@@ -122,6 +158,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 textBoxId.Text = ID;
                 string Name = (TableSupplier.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
                 textBoxName.Text = Name;
+                
             }
             catch (Exception)
             {

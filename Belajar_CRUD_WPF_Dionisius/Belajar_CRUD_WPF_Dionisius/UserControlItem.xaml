@@ -160,7 +160,7 @@
             <Grid Margin="62,40,7.6,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <!--<ColumnDefinition Width="*"/>-->
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="btn_input" Click="ButtonInputClick" Grid.Column="0" Width="50" Height="50" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -172,6 +172,15 @@
                         </ToolTip>
                     </Button.ToolTip>
 
+                </Button>
+
+                <Button x:Name="btn_update" Click="ButtonUpdateClick" Grid.Column="1" Width="50" Height="50" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Update" Width="50" Height="50"/>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Update Data
+                        </ToolTip>
+                    </Button.ToolTip>
                 </Button>
 
                 <!--<Button x:Name="btn_delete" Click="ButtonDeleteClick" Grid.Column="2" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -253,7 +262,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTemplateColumn Header="Update" Width="*">
+                <!--<DataGridTemplateColumn Header="Update" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Click="ButtonUpdateClick">
@@ -266,7 +275,7 @@
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
                 
                 <DataGridTemplateColumn Header="Delete" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
