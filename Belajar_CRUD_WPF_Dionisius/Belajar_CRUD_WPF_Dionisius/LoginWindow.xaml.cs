@@ -92,6 +92,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                     updateUser.Password = id.ToString();
                     myContext.SaveChanges();
 
+                    string dateNow = DateTime.Now.ToString();
                     string PasswordText = "Masukkan Token ini pada Layar Anda: " + guid;
 
                     SmtpClient client = new SmtpClient();
@@ -104,7 +105,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                     client.Credentials = new System.Net.NetworkCredential("dionisiusyose11@gmail.com", "gmaildion1997");
                     MailMessage mm =
                         new MailMessage("donotreply@gmail.com", emailTextBox.Text
-                        , "Secret!", PasswordText);
+                        , $"Secret Token !!! for {dateNow}", PasswordText);
                     mm.BodyEncoding = UTF8Encoding.UTF8;
                     mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
                     client.Send(mm);
