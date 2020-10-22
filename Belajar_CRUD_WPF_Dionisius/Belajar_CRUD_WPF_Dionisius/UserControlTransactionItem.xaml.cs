@@ -157,7 +157,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                 }
                 else
                 {
-                    TableTi.ItemsSource = myContext.Items.ToList();
+                    TableTi.ItemsSource = myContext.TransactionItems.ToList();
                 }
             }
         }

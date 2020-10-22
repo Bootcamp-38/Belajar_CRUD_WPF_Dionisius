@@ -13,11 +13,12 @@ namespace Belajar_CRUD_WPF_Dionisius.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Date { get; set; }
+        //public string Date { get; set; }
+        public DateTime OrderDate { get; set; }
         public Transaction() { }
-        public Transaction(string date)
+        public Transaction(DateTime orderDate)
         {
-            this.Date = date;
+            this.OrderDate = orderDate;
         }
     }
 }

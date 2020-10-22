@@ -51,68 +51,50 @@ namespace Belajar_CRUD_WPF_Dionisius
 
         private void ButtonInputClick(object sender, RoutedEventArgs e)
         {
-            if (textBoxDate.Text == string.Empty)
+            if(textBoxDate.SelectedDate == null)
             {
-                MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
+                MessageBox.Show("Masukkan Order Date!!!");
                 textBoxDate.Focus();
             }
             else
             {
-                if(DateTime.TryParse(textBoxDate.Text, out dateTime))
-                {
-                    String.Format("{0:mm/dd/yyyy}", dateTime);
-
-                    var input = new Transaction(textBoxDate.Text);
-                    myContext.Transactions.Add(input);
-                    myContext.SaveChanges();
-
-                    MessageBox.Show("Input Berhasil", "Sukses");
-                    TableTransaction.ItemsSource = myContext.Transactions.ToList();
-                    textBoxId.Clear();
-                    textBoxDate.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Date", "Warning!!!");
-                }
+                var input = new Transaction(textBoxDate.SelectedDate.Value);
+                myContext.Transactions.Add(input);
+                myContext.SaveChanges();
+                MessageBox.Show("Input Berhasil", "Sukses");
+                TableTransaction.ItemsSource = myContext.Transactions.ToList();
+                textBoxId.Clear();
+                textBoxDate.SelectedDate = null;
+               
             }
         }
 
         private void ButtonUpdateClick(object sender, RoutedEventArgs e)
         {
-            if (textBoxDate.Text == string.Empty)
+            if (textBoxDate.SelectedDate == null)
             {
                 MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
                 textBoxDate.Focus();
             }
             else
             {
-                if (DateTime.TryParse(textBoxDate.Text, out dateTime))
-                {
-                    int Id = (TableTransaction.SelectedItem as Transaction).Id;
-                    Transaction updateTransaction = myContext.Transactions.Where(update => update.Id == Id).Single();
+                int Id = (TableTransaction.SelectedItem as Transaction).Id;
+                Transaction updateTransaction = myContext.Transactions.Where(a => a.Id == Id).Single();
 
-                    String.Format("{0:mm/dd/yyyy}", dateTime);
+                updateTransaction.OrderDate = textBoxDate.SelectedDate.Value;
+                myContext.SaveChanges();
 
-                    updateTransaction.Date = textBoxDate.Text;
-
-                    myContext.SaveChanges();
-
-                    MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
-                    TableTransaction.ItemsSource = myContext.Transactions.ToList();
-                    textBoxId.Clear();
-                    textBoxDate.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Date", "Warning!!!");
-                }
+                MessageBox.Show($"Data {textBoxId.Text} Berhasil Update", "Sukses");
+                TableTransaction.ItemsSource = myContext.Transactions.ToList();
+                textBoxId.Clear();
+                textBoxDate.SelectedDate = null;
+                
             }
         }
 
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
         {
-            if (textBoxDate.Text == string.Empty)
+            if (textBoxDate.SelectedDate == null)
             {
                 MessageBox.Show("Tidak ada data yang dimasukkan", "Peringatan");
                 textBoxDate.Focus();
@@ -140,7 +122,7 @@ namespace Belajar_CRUD_WPF_Dionisius
                         MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
                     }
                     TableTransaction.ItemsSource = myContext.Transactions.ToList();
-                    textBoxDate.Clear();
+                    textBoxDate.SelectedDate = null;
                     textBoxId.Clear();
 
                 }
@@ -149,33 +131,6 @@ namespace Belajar_CRUD_WPF_Dionisius
                     TableTransaction.ItemsSource = myContext.Transactions.ToList();
                 }
             }
-
-            //if (textBoxDate.Text == string.Empty)
-            //{
-            //    MessageBox.Show("Tidak ada data yang ingin dihapus", "Peringatan");
-            //}
-            //else
-            //{
-            //    MessageBoxResult result = MessageBox.Show("Anda Yakin Ingin Menghapus Data???", "Konfirmasi", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            //    if (result == MessageBoxResult.Yes)
-            //    {
-            //        int Id = (TableItem.SelectedItem as Transaction).Id;
-
-            //        var deleteTransaction = myContext.Transactions.Where(delete => delete.Id == Id).Single();
-            //        myContext.Transactions.Remove(deleteTransaction);
-            //        myContext.SaveChanges();
-
-            //        MessageBox.Show($"Data {textBoxId.Text} Dihapus", "Sukses");
-            //        TableItem.ItemsSource = myContext.Items.ToList();
-            //        textBoxId.Clear();
-            //        textBoxDate.Clear();
-            //    }
-            //    else
-            //    {
-            //        TableItem.ItemsSource = myContext.Items.ToList();
-            //    }
-            //}
         }
 
         private void refresh_btn_Click(object sender, RoutedEventArgs e)

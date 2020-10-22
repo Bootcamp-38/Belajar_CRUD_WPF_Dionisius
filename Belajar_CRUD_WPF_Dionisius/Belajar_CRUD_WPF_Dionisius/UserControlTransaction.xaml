@@ -108,7 +108,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Margin="0 0 10 0" Grid.Column="0" Text="Date" TextAlignment="Left" FontWeight="Bold" VerticalAlignment="Center"/>
-                <TextBox Margin="0 0 10 0" Grid.Column="1" x:Name="textBoxDate" Background="#eee"/>
+                <DatePicker Margin="0 0 10 0" Grid.Column="1" x:Name="textBoxDate" Background="#eee"/>
             </Grid>
 
 
@@ -181,7 +181,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Name" Binding="{Binding Date}" Width="3*">
+                <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate, StringFormat=\{0:dd/MM/yyyy\}}" Width="3*">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center"/>

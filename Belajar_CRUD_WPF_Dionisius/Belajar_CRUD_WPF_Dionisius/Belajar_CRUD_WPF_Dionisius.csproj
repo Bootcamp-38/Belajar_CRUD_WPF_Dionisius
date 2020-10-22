@@ -112,6 +112,10 @@
     <Compile Include="Migrations\202010211041163_addTableTransactionItemNew.designer.cs">
       <DependentUpon>202010211041163_addTableTransactionItemNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010220218122_setDateTimetoTransactionTable.cs" />
+    <Compile Include="Migrations\202010220218122_setDateTimetoTransactionTable.designer.cs">
+      <DependentUpon>202010220218122_setDateTimetoTransactionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionItem.cs" />
     <Compile Include="Models\User.cs" />
@@ -224,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010211041163_addTableTransactionItemNew.resx">
       <DependentUpon>202010211041163_addTableTransactionItemNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010220218122_setDateTimetoTransactionTable.resx">
+      <DependentUpon>202010220218122_setDateTimetoTransactionTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
