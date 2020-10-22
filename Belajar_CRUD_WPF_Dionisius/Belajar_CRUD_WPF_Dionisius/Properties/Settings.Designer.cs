@@ -26,5 +26,7 @@ namespace Belajar_CRUD_WPF_Dionisius.Properties
                 return defaultInstance;
             }
         }
+
+        public object Email { get; internal set; }
     }
 }

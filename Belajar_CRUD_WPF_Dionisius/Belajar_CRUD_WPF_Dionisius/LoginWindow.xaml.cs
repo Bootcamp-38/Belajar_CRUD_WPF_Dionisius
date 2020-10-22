@@ -3,6 +3,8 @@ using Belajar_CRUD_WPF_Dionisius.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -28,11 +30,29 @@ namespace Belajar_CRUD_WPF_Dionisius
         public LoginWindow()
         {
             InitializeComponent();
+            if(Properties.Settings.Default.Email != null)
+            {
+                emailTextBox.Text = Properties.Settings.Default.Email.ToString();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(emailTextBox.Text == string.Empty && passwordTextBox.Password == string.Empty)
+            if (RememberMeCheckBox.IsChecked == true)
+            {
+                Properties.Settings.Default.Email = emailTextBox.Text;
+                Properties.Settings.Default.Save();
+
+                //MessageBox.Show(Properties.Settings.Default.Email.ToString());
+            }
+            else if (RememberMeCheckBox.IsChecked == false)
+            {
+                Properties.Settings.Default.Email = "";
+                Properties.Settings.Default.Save();
+                //MessageBox.Show("No Data Saved");
+            }
+
+            if (emailTextBox.Text == string.Empty && passwordTextBox.Password == string.Empty)
             {
                 MessageBox.Show("Anda belum memasukkan username dan password");
             }
@@ -51,9 +71,13 @@ namespace Belajar_CRUD_WPF_Dionisius
 
                 if(myContext.Users.Any(a => a.UserName == emailTextBox.Text))
                 {
+                    
+
                     User user = myContext.Users.Where(check => check.UserName == emailTextBox.Text).Single();
                     if (user.UserName == emailTextBox.Text && user.Password == passwordTextBox.Password)
                     {
+                        
+
                         MainWindow main = new MainWindow();
                         main.Show();
                         this.Close();

@@ -63,6 +63,7 @@
             <Button x:Name="forgot_btn" Click="forgot_btn_Click"
                 Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black">Forgot Password?</Button>
         </Grid>
+        <CheckBox x:Name="RememberMeCheckBox" Content="Remember Me???" Foreground="Gray" FontStyle="Oblique" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,330,0,0"/>
         <!--<TextBlock Text="ESQUECEU A SENHA?" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30" Foreground="Gray" Cursor="Hand"/>-->
         <!--<Image Source="./Assets/input_btn.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>-->
     </Grid>
